@@ -1,0 +1,24 @@
+---
+import ButtonLink from './ButtonLink.astro';
+import { contact, contactStrip, ui, type Lang } from '../data/site';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const copy = contactStrip[lang];
+---
+<section class="contact-strip" id="parlem">
+  <div class="shell contact-strip-grid">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2>{copy.title}</h2>
+    </div>
+    <div class="contact-strip-detail">
+      <p>{copy.body}</p>
+      <ButtonLink href={`mailto:${contact.email}`} label={ui[lang].contactCta} light />
+    </div>
+    <div class="contact-strip-data">
+      <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+      <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      <span>{contact.address}</span>
+    </div>
+  </div>
+</section>

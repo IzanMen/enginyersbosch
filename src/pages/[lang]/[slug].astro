@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ButtonLink from '../../components/ButtonLink.astro';
+import ContactStrip from '../../components/ContactStrip.astro';
+import InnerHero from '../../components/InnerHero.astro';
+import { legalDocuments } from '../../data/legal';
+import { contact, contactPage, languages, pageHref, projectPage, projects, routes, servicePage, services, team, ui, type Lang, type PageKey } from '../../data/site';
+
+export const prerender = true;
+
+const innerPages: PageKey[] = ['services', 'projects', 'contact', 'privacy', 'legal', 'cookies'];
+
+export function getStaticPaths() {
+  const pages: PageKey[] = ['services', 'projects', 'contact', 'privacy', 'legal', 'cookies'];
+  return languages.flatMap((lang) => pages.map((page) => ({ params: { lang, slug: routes[lang][page] } })));
+}
+
+const lang = (Astro.params.lang ?? 'ca') as Lang;
+const slug = Astro.params.slug ?? '';
+const current = innerPages.find((page) => routes[lang][page] === slug);
+if (!current) return Astro.redirect(pageHref(lang, 'home'));
+const common = ui[lang];
+
+const meta = current === 'services' ? servicePage[lang]
+  : current === 'projects' ? projectPage[lang]
+  : current === 'contact' ? contactPage[lang]
+  : legalDocuments[lang][current as 'privacy' | 'legal' | 'cookies'];
+
+const groupLabels = {
+  ca: { hospitality: 'Hotels i restauració', industrial: 'Indústria', retail: 'Comerç', structures: 'Estructures' },
+  es: { hospitality: 'Hoteles y restauración', industrial: 'Industria', retail: 'Comercio', structures: 'Estructuras' },
+  en: { hospitality: 'Hotels and hospitality', industrial: 'Industry', retail: 'Retail', structures: 'Structures' },
+}[lang];
+const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hospitality', 'cafe-balear': 'hospitality', 'casas-del-lago': 'hospitality', diskont: 'industrial', raima: 'industrial', iris: 'retail', edc: 'retail', habitatge: 'structures', vivienda: 'structures', house: 'structures' };
+---
+
+<BaseLayout lang={lang} current={current} title={`${meta.title} — Enginyers Bosch`} description={'intro' in meta && meta.intro ? meta.intro : meta.title}>
+  {current === 'services' && (
+    <>
+      <InnerHero lang={lang} eyebrow={servicePage[lang].eyebrow} title={servicePage[lang].title} intro={servicePage[lang].intro} />
+      <section class="service-list shell">
+        {services[lang].map((service, index) => (
+          <article class="service-row" id={service.id}>
+            <div class="service-row-image"><img src={service.image} width="960" height="640" alt={service.title} loading={index < 2 ? 'eager' : 'lazy'} /></div>
+            <div class="service-row-content">
+              <span class="service-number">{String(index + 1).padStart(2, '0')}</span>
+              <h2>{service.title}</h2>
+              <p class="service-short">{service.short}</p>
+              <p>{service.body}</p>
+              <ButtonLink href={pageHref(lang, 'contact')} label={common.contactCta} outline />
+            </div>
+          </article>
+        ))}
+      </section>
+      <ContactStrip lang={lang} />
+    </>
+  )}
+
+  {current === 'projects' && (
+    <>
+      <InnerHero lang={lang} eyebrow={projectPage[lang].eyebrow} title={projectPage[lang].title} intro={projectPage[lang].intro} />
+      <section class="project-archive shell">
+        <div class="filter-bar" aria-label={projectPage[lang].filter}>
+          <span>{projectPage[lang].filter}</span>
+          <div>
+            <button type="button" class="is-active" data-filter="all">{common.all}</button>
+            {Object.entries(groupLabels).map(([key, label]) => <button type="button" data-filter={key}>{label}</button>)}
+          </div>
+        </div>
+        <div class="project-grid" data-project-grid>
+          {projects[lang].map((project) => (
+            <article class="project-card archive-card" data-project data-group={groupFor[project.slug]}>
+              <img src={project.image} width="960" height="640" alt={project.title} loading="lazy" />
+              <div>
+                <span>{project.category}</span>
+                <h2>{project.title}</h2>
+                <details class="project-more">
+                  <summary>{common.learnMore}<b aria-hidden="true">+</b></summary>
+                  <p>{project.description}</p>
+                </details>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <ContactStrip lang={lang} />
+      <script>
+        const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+        const cards = document.querySelectorAll<HTMLElement>('[data-project]');
+        buttons.forEach((button) => button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+          cards.forEach((card) => { card.hidden = filter !== 'all' && card.dataset.group !== filter; });
+        }));
+      </script>
+    </>
+  )}
+
+  {current === 'contact' && (
+    <>
+      <InnerHero lang={lang} eyebrow={contactPage[lang].eyebrow} title={contactPage[lang].title} intro={contactPage[lang].intro} />
+      <section class="location-section shell">
+        <div class="location-map">
+          <iframe src={contact.osmEmbed} title="Enginyers Bosch — Ciutadella de Menorca" loading="lazy"></iframe>
+          <small>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a></small>
+        </div>
+        <div class="location-card">
+          <p class="eyebrow">{contactPage[lang].visit}</p>
+          <h2>Enginyers Bosch</h2>
+          <dl>
+            <div><dt>{common.address}</dt><dd>{contact.address}</dd></div>
+            <div><dt>{common.phone}</dt><dd><a href={contact.phoneHref}>{contact.phoneDisplay}</a></dd></div>
+            <div><dt>{common.email}</dt><dd><a href={`mailto:${contact.email}`}>{contact.email}</a></dd></div>
+          </dl>
+          <ButtonLink href={contact.mapsHref} label={common.directions} light />
+        </div>
+      </section>
+      <section class="section team-section shell">
+        <div class="section-lead"><div><p class="eyebrow">{contactPage[lang].teamEyebrow}</p><h2>{contactPage[lang].teamTitle}</h2></div><p>{contactPage[lang].teamIntro}</p></div>
+        <div class="team-grid">
+          {team[lang].map((person, index) => (
+            <article class="team-card">
+              {person.image ? <img src={person.image} width="500" height="750" alt={person.name} loading="lazy" /> : <div class:list={['team-placeholder', `team-placeholder-${index}`]} aria-hidden="true"><span>{person.name.split(' ').map((part) => part[0]).slice(0, 2).join('')}</span></div>}
+              <div><h3>{person.name}</h3><span>{person.role}</span><p>{person.bio}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <ContactStrip lang={lang} />
+    </>
+  )}
+
+  {(current === 'privacy' || current === 'legal' || current === 'cookies') && (
+    <>
+      <section class="legal-hero shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href={pageHref(lang, 'home')}>{common.breadcrumb}</a><span>/</span><span>{legalDocuments[lang][current].title}</span></nav>
+        <h1>{legalDocuments[lang][current].title}</h1>
+        {legalDocuments[lang][current].updated && <p>{legalDocuments[lang][current].updated}</p>}
+      </section>
+      <article class="legal-content shell">
+        {legalDocuments[lang][current].intro && <p class="legal-intro">{legalDocuments[lang][current].intro}</p>}
+        {legalDocuments[lang][current].sections.map((section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {section.items && <ul>{section.items.map((item) => <li>{item}</li>)}</ul>}
+          </section>
+        ))}
+      </article>
+    </>
+  )}
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { contact, pageHref, ui, type Lang } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const copy = ui[lang];
+---
+<footer class="site-footer">
+  <div class="shell footer-main">
+    <div class="footer-statement">
+      <img src="/images/logo.webp" width="266" height="64" alt="Enginyers Bosch" loading="lazy" />
+      <p>{copy.footerStatement}</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href={pageHref(lang, 'services')}>{copy.nav.services}</a>
+      <a href={pageHref(lang, 'projects')}>{copy.nav.projects}</a>
+      <a href={pageHref(lang, 'contact')}>{copy.nav.contact}</a>
+    </nav>
+    <address>
+      <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+      <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      <span>{contact.address}</span>
+    </address>
+  </div>
+  <div class="shell footer-values" aria-label="Valors">
+    {copy.footerValues.map((value) => <span>{value}</span>)}
+  </div>
+  <div class="shell footer-legal">
+    <span>© {new Date().getFullYear()} Enginyers Bosch · {copy.copyright}</span>
+    <nav aria-label="Legal">
+      <a href={pageHref(lang, 'privacy')}>{copy.legalLinks.privacy}</a>
+      <a href={pageHref(lang, 'legal')}>{copy.legalLinks.legal}</a>
+      <a href={pageHref(lang, 'cookies')}>{copy.legalLinks.cookies}</a>
+      <button type="button" data-cookie-manage>{copy.manageCookies}</button>
+    </nav>
+  </div>
+</footer>

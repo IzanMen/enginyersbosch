@@ -1,0 +1,12 @@
+---
+import { pageHref, ui, type Lang } from '../data/site';
+interface Props { lang: Lang; eyebrow: string; title: string; intro: string; }
+const { lang, eyebrow, title, intro } = Astro.props;
+---
+<section class="inner-hero shell">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href={pageHref(lang, 'home')}>{ui[lang].breadcrumb}</a><span>/</span><span>{eyebrow}</span></nav>
+  <div class="inner-hero-grid">
+    <h1>{title}</h1>
+    <p>{intro}</p>
+  </div>
+</section>

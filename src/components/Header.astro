@@ -1,0 +1,35 @@
+---
+import ButtonLink from './ButtonLink.astro';
+import { contact, languages, pageHref, ui, type Lang, type PageKey } from '../data/site';
+
+interface Props { lang: Lang; current: PageKey; }
+const { lang, current } = Astro.props;
+const copy = ui[lang];
+const items: Array<[PageKey, string]> = [['services', copy.nav.services], ['projects', copy.nav.projects], ['contact', copy.nav.contact]];
+---
+<header class="site-header-wrap">
+  <div class="site-header shell">
+    <a class="brand" href={pageHref(lang, 'home')} aria-label={`Enginyers Bosch — ${copy.nav.home}`}>
+      <img class="logo" src="/images/logo.webp" width="266" height="64" alt="Enginyers Bosch" />
+    </a>
+    <nav class="desktop-nav" aria-label="Principal">
+      {items.map(([key, label]) => <a href={pageHref(lang, key)} aria-current={current === key ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <details class="language-switcher">
+      <summary aria-label="Idioma">{copy.localeName}<span aria-hidden="true">⌄</span></summary>
+      <div>{languages.filter((code) => code !== lang).map((code) => <a href={pageHref(code, current)}>{ui[code].localeName}</a>)}</div>
+    </details>
+    <ButtonLink href={`mailto:${contact.email}`} label={copy.contactCta} class="header-cta" />
+    <details class="mobile-menu">
+      <summary aria-label="Menu"><span></span><span></span></summary>
+      <div class="mobile-panel">
+        <nav aria-label="Principal">
+          <a href={pageHref(lang, 'home')}>{copy.nav.home}</a>
+          {items.map(([key, label]) => <a href={pageHref(lang, key)} aria-current={current === key ? 'page' : undefined}>{label}</a>)}
+        </nav>
+        <div class="mobile-languages">{languages.map((code) => <a href={pageHref(code, current)} aria-current={code === lang ? 'true' : undefined}>{ui[code].localeName}</a>)}</div>
+        <ButtonLink href={`mailto:${contact.email}`} label={copy.contactCta} />
+      </div>
+    </details>
+  </div>
+</header>

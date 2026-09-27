@@ -1,0 +1,32 @@
+---
+import { cookieCopy, pageHref, type Lang } from '../data/site';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const copy = cookieCopy[lang];
+---
+<aside class="cookie-banner" data-cookie-banner hidden aria-labelledby="cookie-title">
+  <div>
+    <p class="eyebrow" id="cookie-title">{copy.title}</p>
+    <p>{copy.body}</p>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="pill pill-outline" data-cookie-choice="rejected">{copy.reject}</button>
+    <button type="button" class="pill" data-cookie-choice="accepted">{copy.accept}</button>
+    <a href={pageHref(lang, 'cookies')}>{copy.settings}</a>
+  </div>
+</aside>
+<script is:inline>
+  (() => {
+    const key = 'eb-cookie-consent';
+    const banner = document.querySelector('[data-cookie-banner]');
+    if (!(banner instanceof HTMLElement)) return;
+    const show = () => { banner.hidden = false; };
+    const hide = () => { banner.hidden = true; };
+    try { if (!localStorage.getItem(key)) show(); } catch { show(); }
+    document.querySelectorAll('[data-cookie-choice]').forEach((button) => button.addEventListener('click', () => {
+      try { localStorage.setItem(key, button.getAttribute('data-cookie-choice') || 'rejected'); } catch {}
+      hide();
+    }));
+    document.querySelectorAll('[data-cookie-manage]').forEach((button) => button.addEventListener('click', show));
+  })();
+</script>
