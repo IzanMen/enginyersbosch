@@ -37,6 +37,14 @@ export const ui = {
   },
 } satisfies Record<Lang, unknown>;
 
+const googleReviews = [
+  'Jordi es un gran profesional. Hemos contado con él para varios proyectos en comunidades de vecinos y la verdad es que es un 10. Se ha prestado a incontables reuniones con los vecinos para que todos entendieran bien la magnitud de las obras que se iban a realizar. Además, siempre piensa en sus clientes, buscando las opciones más seguras y mirando por su economía. Sin dudarlo, lo recomiendo.',
+  'Gran equipo de profesionales. Estamos muy agradecidos a Jordi y Jaume, que siempre están pendientes de cumplir con rapidez y agilidad las necesidades de los clientes. Gracias por la ayuda que siempre nos prestáis.',
+  'Empresa muy cercana. Cualquier problema que hemos tenido nos lo han solucionado y han estado muy pendientes de nuestra marca. Profesionales y rápidos.',
+  'Muy ágiles y eficaces en la tramitación de la licencia.',
+  'Molt agraïda del vostre servei tan professional i bon tracte.',
+];
+
 export const home = {
   ca: {
     title: 'Enginyeria que fa possible cada projecte.',
@@ -49,11 +57,8 @@ export const home = {
     projectsIntro: 'Una selecció de projectes d’activitats, instal·lacions, construcció i estructures resolts per l’estudi.',
     trustEyebrow: 'Confiança demostrable', trustTitle: 'Quatre dècades resolent allò complex.',
     trustBody: 'Coneixem el territori, la normativa i les administracions. Aquesta experiència ens permet anticipar decisions i donar una resposta tècnica àgil, clara i viable.',
-    trustItems: [
-      ['Tracte directe', 'Cada projecte té un interlocutor tècnic proper de principi a fi.'],
-      ['Solvència tècnica', 'Solucions funcionals i optimitzades en qualitat, cost i normativa.'],
-      ['Gestió completa', 'Projecte, direcció, legalització i tràmits coordinats des del mateix despatx.'],
-    ],
+    reviewsTitle: 'Opinions dels nostres clients', reviewSource: 'Ressenya publicada a Google',
+    reviewsPrevious: 'Ressenya anterior', reviewsNext: 'Ressenya següent', reviews: googleReviews,
   },
   es: {
     title: 'Ingeniería que hace posible cada proyecto.',
@@ -66,11 +71,8 @@ export const home = {
     projectsIntro: 'Una selección de proyectos de actividades, instalaciones, construcción y estructuras resueltos por el estudio.',
     trustEyebrow: 'Confianza demostrable', trustTitle: 'Cuatro décadas resolviendo lo complejo.',
     trustBody: 'Conocemos el territorio, la normativa y las administraciones. Esa experiencia nos permite anticipar decisiones y dar una respuesta técnica ágil, clara y viable.',
-    trustItems: [
-      ['Trato directo', 'Cada proyecto tiene un interlocutor técnico cercano de principio a fin.'],
-      ['Solvencia técnica', 'Soluciones funcionales y optimizadas en calidad, coste y normativa.'],
-      ['Gestión completa', 'Proyecto, dirección, legalización y trámites coordinados desde el mismo despacho.'],
-    ],
+    reviewsTitle: 'Opiniones de nuestros clientes', reviewSource: 'Reseña publicada en Google',
+    reviewsPrevious: 'Reseña anterior', reviewsNext: 'Reseña siguiente', reviews: googleReviews,
   },
   en: {
     title: 'Engineering that makes every project possible.',
@@ -83,11 +85,8 @@ export const home = {
     projectsIntro: 'A selection of business activity, installations, construction and structural projects delivered by the studio.',
     trustEyebrow: 'Proven confidence', trustTitle: 'Four decades solving complex challenges.',
     trustBody: 'We know the territory, regulations and public authorities. That experience helps us anticipate decisions and provide an agile, clear and viable technical response.',
-    trustItems: [
-      ['Direct contact', 'Every project has a nearby technical lead from beginning to end.'],
-      ['Technical expertise', 'Functional solutions optimised for quality, cost and compliance.'],
-      ['Complete management', 'Design, site management, legalisation and administration from one studio.'],
-    ],
+    reviewsTitle: 'What our clients say', reviewSource: 'Review published on Google',
+    reviewsPrevious: 'Previous review', reviewsNext: 'Next review', reviews: googleReviews,
   },
 } satisfies Record<Lang, unknown>;
 

@@ -85,8 +85,30 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
         <p class="eyebrow">{copy.trustEyebrow}</p>
         <h2>{copy.trustTitle}</h2>
         <p class="trust-intro">{copy.trustBody}</p>
-        <div class="trust-items">{copy.trustItems.map(([title, body], index) => <article><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{body}</p></div></article>)}</div>
-        <p class="references">{common.references}</p>
+        <div class="reviews-panel" data-reviews>
+          <div class="reviews-heading">
+            <div class="google-source" aria-label="Google">
+              <span class="google-blue">G</span><span class="google-red">o</span><span class="google-yellow">o</span><span class="google-blue">g</span><span class="google-green">l</span><span class="google-red">e</span>
+            </div>
+            <strong>{copy.reviewsTitle}</strong>
+          </div>
+          <div class="review-track" data-review-track tabindex="0">
+            {copy.reviews.map((review) => (
+              <article class="review-card">
+                <span class="review-quote" aria-hidden="true">“</span>
+                <p>{review}</p>
+                <footer>{copy.reviewSource}</footer>
+              </article>
+            ))}
+          </div>
+          <div class="review-controls">
+            <span aria-live="polite"><b data-review-current>01</b> / {String(copy.reviews.length).padStart(2, '0')}</span>
+            <div>
+              <button type="button" data-review-prev aria-label={copy.reviewsPrevious}>←</button>
+              <button type="button" data-review-next aria-label={copy.reviewsNext}>→</button>
+            </div>
+          </div>
+        </div>
         <ButtonLink href={pageHref(lang, 'contact')} label={common.contactCta} light />
       </div>
     </div>
@@ -103,4 +125,20 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
   };
   document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => move(-1));
   document.querySelector('[data-carousel-next]')?.addEventListener('click', () => move(1));
+
+  const reviewTrack = document.querySelector('[data-review-track]');
+  const reviewCurrent = document.querySelector('[data-review-current]');
+  const moveReview = (direction: number) => {
+    if (!(reviewTrack instanceof HTMLElement)) return;
+    reviewTrack.scrollBy({ left: direction * reviewTrack.clientWidth, behavior: 'smooth' });
+  };
+  const updateReviewCount = () => {
+    if (!(reviewTrack instanceof HTMLElement) || !(reviewCurrent instanceof HTMLElement)) return;
+    const index = Math.round(reviewTrack.scrollLeft / reviewTrack.clientWidth);
+    reviewCurrent.textContent = String(index + 1).padStart(2, '0');
+  };
+  document.querySelector('[data-review-prev]')?.addEventListener('click', () => moveReview(-1));
+  document.querySelector('[data-review-next]')?.addEventListener('click', () => moveReview(1));
+  reviewTrack?.addEventListener('scrollend', updateReviewCount);
+  reviewTrack?.addEventListener('scroll', () => requestAnimationFrame(updateReviewCount), { passive: true });
 </script>
