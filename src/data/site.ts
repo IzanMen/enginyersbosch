@@ -169,31 +169,10 @@ export const projects = {
 } satisfies Record<Lang, Array<{ slug: string; title: string; category: string; description: string; image: string }>>;
 
 export const contactPage = {
-  ca: { eyebrow: 'Contacte', title: 'El teu projecte comença amb una conversa.', intro: 'Explica’ns què necessites. T’ajudarem a ordenar el procés i a trobar la solució tècnica adequada.', visit: 'Visita’ns a Ciutadella', teamEyebrow: 'Equip', teamTitle: 'Experiència, criteri i atenció directa.', teamIntro: 'Un equip de professionals amb experiència en el sector i en el tracte amb l’administració.' },
-  es: { eyebrow: 'Contacto', title: 'Tu proyecto empieza con una conversación.', intro: 'Cuéntanos qué necesitas. Te ayudaremos a ordenar el proceso y a encontrar la solución técnica adecuada.', visit: 'Visítanos en Ciutadella', teamEyebrow: 'Equipo', teamTitle: 'Experiencia, criterio y atención directa.', teamIntro: 'Un equipo de profesionales con experiencia en el sector y en el trato con la administración.' },
-  en: { eyebrow: 'Contact', title: 'Your project starts with a conversation.', intro: 'Tell us what you need. We will help structure the process and find the right technical solution.', visit: 'Visit us in Ciutadella', teamEyebrow: 'Team', teamTitle: 'Experience, judgement and direct attention.', teamIntro: 'A professional team with extensive engineering and public-administration experience.' },
+  ca: { eyebrow: 'Contacte', title: 'El teu projecte comença amb una conversa.', intro: 'Explica’ns què necessites. T’ajudarem a ordenar el procés i a trobar la solució tècnica adequada.', visit: 'Visita’ns a Ciutadella' },
+  es: { eyebrow: 'Contacto', title: 'Tu proyecto empieza con una conversación.', intro: 'Cuéntanos qué necesitas. Te ayudaremos a ordenar el proceso y a encontrar la solución técnica adecuada.', visit: 'Visítanos en Ciutadella' },
+  en: { eyebrow: 'Contact', title: 'Your project starts with a conversation.', intro: 'Tell us what you need. We will help structure the process and find the right technical solution.', visit: 'Visit us in Ciutadella' },
 };
-
-export const team = {
-  ca: [
-    { name: 'José Bosch Seguí', role: 'Enginyer Industrial · Col·legiat 170', bio: 'Gerència, supervisió i direcció de projectes, solucions tècniques i control a peu d’obra.', image: null },
-    { name: 'Francisca León', role: 'Memòries tècniques i documentació', bio: 'Elaboració de memòries, gestió administrativa i tràmits amb l’administració.', image: '/images/francisca.webp' },
-    { name: 'Tonia Mora', role: 'Delineació i solucions gràfiques', bio: 'Desenvolupament de projectes, plànols i contacte amb industrials.', image: '/images/tonia.webp' },
-    { name: 'Jordi Bosch Simó', role: 'Enginyer Mecànic · Col·legiat 1.437', bio: 'Direcció i delineació de projectes, solucions tècniques, control d’obra i seguretat i salut.', image: null },
-  ],
-  es: [
-    { name: 'José Bosch Seguí', role: 'Ingeniero Industrial · Colegiado 170', bio: 'Gerencia, supervisión y dirección de proyectos, soluciones técnicas y control a pie de obra.', image: null },
-    { name: 'Francisca León', role: 'Memorias técnicas y documentación', bio: 'Elaboración de memorias, gestión administrativa y trámites con la administración.', image: '/images/francisca.webp' },
-    { name: 'Tonia Mora', role: 'Delineación y soluciones gráficas', bio: 'Desarrollo de proyectos, planos y contacto con industriales.', image: '/images/tonia.webp' },
-    { name: 'Jordi Bosch Simó', role: 'Ingeniero Mecánico · Colegiado 1.437', bio: 'Dirección y delineación de proyectos, soluciones técnicas, control de obra y seguridad y salud.', image: null },
-  ],
-  en: [
-    { name: 'José Bosch Seguí', role: 'Industrial Engineer · Registration 170', bio: 'Management, project supervision, technical solutions and on-site control.', image: null },
-    { name: 'Francisca León', role: 'Technical reports and documentation', bio: 'Technical reports, administration and liaison with public authorities.', image: '/images/francisca.webp' },
-    { name: 'Tonia Mora', role: 'Drafting and graphic solutions', bio: 'Project development, technical drawings and coordination with contractors.', image: '/images/tonia.webp' },
-    { name: 'Jordi Bosch Simó', role: 'Mechanical Engineer · Registration 1,437', bio: 'Project design and management, technical solutions, site control, health and safety.', image: null },
-  ],
-} satisfies Record<Lang, Array<{ name: string; role: string; bio: string; image: string | null }>>;
 
 export const contact = {
   phoneDisplay: '(+34) 971 38 48 26', phoneHref: 'tel:+34971384826', email: 'oficina@enginyersbosch.com',

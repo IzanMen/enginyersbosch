@@ -4,7 +4,7 @@ import ButtonLink from '../../components/ButtonLink.astro';
 import ContactStrip from '../../components/ContactStrip.astro';
 import InnerHero from '../../components/InnerHero.astro';
 import { legalDocuments } from '../../data/legal';
-import { contact, contactPage, languages, pageHref, projectPage, projects, routes, servicePage, services, team, ui, type Lang, type PageKey } from '../../data/site';
+import { contact, contactPage, languages, pageHref, projectPage, projects, routes, servicePage, services, ui, type Lang, type PageKey } from '../../data/site';
 
 export const prerender = true;
 
@@ -113,17 +113,6 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
             <div><dt>{common.email}</dt><dd><a href={`mailto:${contact.email}`}>{contact.email}</a></dd></div>
           </dl>
           <ButtonLink href={contact.mapsHref} label={common.directions} light />
-        </div>
-      </section>
-      <section class="section team-section shell">
-        <div class="section-lead"><div><p class="eyebrow">{contactPage[lang].teamEyebrow}</p><h2>{contactPage[lang].teamTitle}</h2></div><p>{contactPage[lang].teamIntro}</p></div>
-        <div class="team-grid">
-          {team[lang].map((person, index) => (
-            <article class="team-card">
-              {person.image ? <img src={person.image} width="500" height="750" alt={person.name} loading="lazy" /> : <div class:list={['team-placeholder', `team-placeholder-${index}`]} aria-hidden="true"><span>{person.name.split(' ').map((part) => part[0]).slice(0, 2).join('')}</span></div>}
-              <div><h3>{person.name}</h3><span>{person.role}</span><p>{person.bio}</p></div>
-            </article>
-          ))}
         </div>
       </section>
       <ContactStrip lang={lang} />
