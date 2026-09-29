@@ -33,3 +33,14 @@ const items: Array<[PageKey, string]> = [['services', copy.nav.services], ['proj
     </details>
   </div>
 </header>
+
+<script>
+  const mobileMenu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') mobileMenu?.removeAttribute('open');
+  });
+  document.addEventListener('click', (event) => {
+    if (!mobileMenu?.open || mobileMenu.contains(event.target as Node)) return;
+    mobileMenu.removeAttribute('open');
+  });
+</script>
