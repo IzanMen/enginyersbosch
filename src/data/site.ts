@@ -16,7 +16,7 @@ export const ui = {
     contactCta: 'Parlem del teu projecte', learnMore: 'Més informació', viewAll: 'Veure tots els projectes', close: 'Tancar', all: 'Tots',
     breadcrumb: 'Inici', phone: 'Telèfon', email: 'Correu electrònic', address: 'Adreça', directions: 'Com arribar-hi', references: 'Referències de clients disponibles sota petició.',
     footerStatement: 'Enginyeria industrial amb criteri, proximitat i capacitat resolutiva al servei de Menorca.',
-    footerValues: ['Rigor', 'Proximitat', 'Experiència', 'Resolució'], copyright: 'Tots els drets reservats', manageCookies: 'Gestionar cookies',
+    copyright: 'Tots els drets reservats', manageCookies: 'Gestionar cookies',
     legalLinks: { privacy: 'Política de privacitat', legal: 'Avís legal', cookies: 'Política de cookies' },
   },
   es: {
@@ -24,7 +24,7 @@ export const ui = {
     contactCta: 'Hablemos de tu proyecto', learnMore: 'Más información', viewAll: 'Ver todos los proyectos', close: 'Cerrar', all: 'Todos',
     breadcrumb: 'Inicio', phone: 'Teléfono', email: 'Correo electrónico', address: 'Dirección', directions: 'Cómo llegar', references: 'Referencias de clientes disponibles bajo petición.',
     footerStatement: 'Ingeniería industrial con criterio, cercanía y capacidad resolutiva al servicio de Menorca.',
-    footerValues: ['Rigor', 'Cercanía', 'Experiencia', 'Resolución'], copyright: 'Todos los derechos reservados', manageCookies: 'Gestionar cookies',
+    copyright: 'Todos los derechos reservados', manageCookies: 'Gestionar cookies',
     legalLinks: { privacy: 'Política de privacidad', legal: 'Aviso legal', cookies: 'Política de cookies' },
   },
   en: {
@@ -32,7 +32,7 @@ export const ui = {
     contactCta: 'Let’s discuss your project', learnMore: 'Find out more', viewAll: 'View all projects', close: 'Close', all: 'All',
     breadcrumb: 'Home', phone: 'Phone', email: 'Email', address: 'Address', directions: 'Get directions', references: 'Client references are available on request.',
     footerStatement: 'Industrial engineering with rigour, a personal approach and effective solutions for Menorca.',
-    footerValues: ['Rigour', 'Proximity', 'Experience', 'Resolution'], copyright: 'All rights reserved', manageCookies: 'Manage cookies',
+    copyright: 'All rights reserved', manageCookies: 'Manage cookies',
     legalLinks: { privacy: 'Privacy policy', legal: 'Legal notice', cookies: 'Cookie policy' },
   },
 } satisfies Record<Lang, unknown>;

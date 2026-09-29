@@ -239,7 +239,6 @@ p { text-wrap: pretty; }
 .footer-main nav, .footer-main address { display: flex; flex-direction: column; gap: .85rem; align-items: flex-start; font-style: normal; font-size: .84rem; }
 .footer-main nav a, .footer-main address a { font-weight: 600; text-decoration: none; }
 .footer-main address span { max-width: 310px; }
-.footer-values { display: flex; justify-content: space-between; border-block: 1px solid rgb(255 255 255 / 22%); padding-block: 1.2rem; font-size: .82rem; font-weight: 700; }
 .footer-legal { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; font-size: .67rem; }
 .footer-legal nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1rem; }
 .footer-legal a, .footer-legal button { border: 0; padding: 0; background: none; color: inherit; cursor: pointer; font-size: inherit; text-decoration: underline; text-underline-offset: 3px; }
@@ -351,7 +350,6 @@ p { text-wrap: pretty; }
   .filter-bar { margin-inline: calc(var(--pad) * -1); }
   .footer-main { grid-template-columns: 1fr; }
   .footer-statement img { width: 190px; }
-  .footer-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .cookie-banner { right: .75rem; bottom: .75rem; width: calc(100% - 1.5rem); padding: 1.15rem; }
   .legal-content section { grid-template-columns: 1fr; }
   .legal-content h2, .legal-content p, .legal-content ul { grid-column: 1; grid-row: auto; }
