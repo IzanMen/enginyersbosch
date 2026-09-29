@@ -183,9 +183,9 @@ export const contact = {
 };
 
 export const contactStrip = {
-  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne.', body: 'Una conversa clara és el primer pas per convertir una necessitat en una solució viable.' },
-  es: { eyebrow: '¿Tienes un proyecto?', title: 'Hablemos.', body: 'Una conversación clara es el primer paso para convertir una necesidad en una solución viable.' },
-  en: { eyebrow: 'Have a project?', title: 'Let’s talk.', body: 'A clear conversation is the first step in turning a requirement into a viable solution.' },
+  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne.', body: 'Una conversa clara és el primer pas per convertir una necessitat en una solució viable.', formTitle: 'Explica’ns el teu projecte', formIntro: 'Dona’ns els primers detalls i estudiarem com et podem ajudar.', name: 'Nom i cognoms', phone: 'Telèfon', email: 'Correu electrònic', message: 'En què et podem ajudar?', privacy: 'He llegit i accepto la', privacyLink: 'política de privacitat', send: 'Enviar consulta' },
+  es: { eyebrow: '¿Tienes un proyecto?', title: 'Hablemos.', body: 'Una conversación clara es el primer paso para convertir una necesidad en una solución viable.', formTitle: 'Cuéntanos tu proyecto', formIntro: 'Danos los primeros detalles y estudiaremos cómo podemos ayudarte.', name: 'Nombre y apellidos', phone: 'Teléfono', email: 'Correo electrónico', message: '¿En qué podemos ayudarte?', privacy: 'He leído y acepto la', privacyLink: 'política de privacidad', send: 'Enviar consulta' },
+  en: { eyebrow: 'Have a project?', title: 'Let’s talk.', body: 'A clear conversation is the first step in turning a requirement into a viable solution.', formTitle: 'Tell us about your project', formIntro: 'Share the first details and we will consider how we can help.', name: 'Full name', phone: 'Phone', email: 'Email address', message: 'How can we help?', privacy: 'I have read and accept the', privacyLink: 'privacy policy', send: 'Send enquiry' },
 };
 
 export const cookieCopy = {
