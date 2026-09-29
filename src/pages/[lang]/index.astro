@@ -46,9 +46,8 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
       <div><p>{copy.servicesIntro}</p><ButtonLink href={pageHref(lang, 'services')} label={common.learnMore} outline /></div>
     </div>
     <div class="service-index shell">
-      {serviceItems.map((service, index) => (
+      {serviceItems.map((service) => (
         <a href={`${pageHref(lang, 'services')}#${service.id}`}>
-          <span>{String(index + 1).padStart(2, '0')}</span>
           <h3>{service.title}</h3>
           <svg aria-hidden="true" viewBox="0 0 17 11"><path d="M9.96.181a.5.5 0 0 1 .704-.067l5.908 4.877a.502.502 0 0 1 0 .771l-5.909 4.876a.5.5 0 0 1-.635-.771l4.834-3.99H.5a.5.5 0 0 1 0-1h14.362L10.028.885a.5.5 0 0 1-.067-.704Z" fill="currentColor" /></svg>
         </a>
