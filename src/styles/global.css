@@ -65,7 +65,12 @@ p { text-wrap: pretty; }
 .hero { padding-top: clamp(3.75rem, 7vw, 7rem); }
 .hero-copy { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(18rem, .55fr); gap: clamp(2rem, 6vw, 6rem); align-items: end; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
 .hero h1 { max-width: 1030px; margin: 0; font-size: clamp(3rem, 6.35vw, 6.75rem); font-weight: 800; letter-spacing: -.058em; line-height: .94; }
-.hero h1 em { color: white; font-style: normal; -webkit-text-stroke: 2px var(--blue); }
+.hero h1 em {
+  color: white;
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--blue);
+  paint-order: stroke fill;
+}
 .hero-copy > div p { max-width: 34rem; margin-bottom: 1.5rem; font-size: clamp(1rem, 1.3vw, 1.25rem); }
 .hero-media { position: relative; aspect-ratio: 16 / 8.25; min-height: 430px; overflow: hidden; background: var(--blue); }
 .hero-media::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgb(19 44 65 / 66%)); pointer-events: none; }
