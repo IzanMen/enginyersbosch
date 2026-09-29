@@ -110,8 +110,10 @@ p { text-wrap: pretty; }
 .project-track::-webkit-scrollbar { display: none; }
 .project-card { overflow: hidden; background: var(--blue); color: white; scroll-snap-align: start; }
 .project-card > img { width: 100%; aspect-ratio: 1.15 / 1; object-fit: cover; transition: transform .35s ease; }
+.projects-preview .project-card > img { aspect-ratio: 3 / 2; }
 .project-card:hover > img { transform: scale(1.025); }
 .project-card > div { min-height: 245px; display: flex; flex-direction: column; padding: 1.4rem; }
+.projects-preview .project-card > div { min-height: 210px; }
 .project-card > div > span { margin-bottom: 1.25rem; font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .project-card h3, .project-card h2 { margin-bottom: .75rem; font-size: 1.28rem; line-height: 1.15; }
 .project-card p { margin-bottom: 1.25rem; font-size: .88rem; }
