@@ -47,7 +47,7 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
               <h2>{service.title}</h2>
               <p class="service-short">{service.short}</p>
               <p>{service.body}</p>
-              <ButtonLink href={pageHref(lang, 'contact')} label={common.contactCta} outline />
+              <ButtonLink href={contact.whatsappHref} label={common.contactCta} outline />
             </div>
           </article>
         ))}
@@ -110,12 +110,13 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
           <dl>
             <div><dt>{common.address}</dt><dd>{contact.address}</dd></div>
             <div><dt>{common.phone}</dt><dd><a href={contact.phoneHref}>{contact.phoneDisplay}</a></dd></div>
+            <div><dt>WhatsApp</dt><dd><a href={contact.whatsappHref} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a></dd></div>
             <div><dt>{common.email}</dt><dd><a href={`mailto:${contact.email}`}>{contact.email}</a></dd></div>
           </dl>
           <ButtonLink href={contact.mapsHref} label={common.directions} light />
         </div>
       </section>
-      <ContactStrip lang={lang} />
+      <ContactStrip lang={lang} showDetails={false} />
     </>
   )}
 

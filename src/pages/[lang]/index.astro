@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ButtonLink from '../../components/ButtonLink.astro';
 import ContactStrip from '../../components/ContactStrip.astro';
-import { home, languages, pageHref, projects, services, ui, type Lang } from '../../data/site';
+import { about, contact, home, languages, pageHref, projects, services, ui, type Lang } from '../../data/site';
 
 export const prerender = true;
 
@@ -24,7 +24,7 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
       <h1>{titleBefore}<em>{copy.outlined}</em>{titleAfter}</h1>
       <div>
         <p>{copy.intro}</p>
-        <ButtonLink href={pageHref(lang, 'contact')} label={common.contactCta} outline />
+        <ButtonLink href={contact.whatsappHref} label={common.contactCta} outline />
       </div>
     </div>
     <div class="hero-media">
@@ -34,10 +34,8 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
   </section>
 
   <section class="stats shell" aria-label="Trajectòria">
-    <article class="stat-aqua"><strong>40+</strong><span>{copy.statYears}</span></article>
-    <article class="stat-purple"><strong>3.500</strong><span>{copy.statFiles}</span></article>
-    <article class="stat-coral"><strong>01</strong><span>{copy.statPlace}</span></article>
-    <article class="stat-sand"><strong>1985</strong><span>{copy.statSince}</span></article>
+    <article class="stat-sand"><strong>{copy.statSince}</strong><span>{copy.statSinceText}</span></article>
+    <article class="stat-aqua"><strong>3.500</strong><span>{copy.statFiles}</span></article>
   </section>
 
   <section class="section services-preview">
@@ -62,18 +60,30 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
         <h2>{copy.projectsTitle}</h2>
         <p>{copy.projectsIntro}</p>
         <ButtonLink href={pageHref(lang, 'projects')} label={common.viewAll} outline />
+      </div>
+      <div class="project-carousel">
         <div class="carousel-controls" aria-label="Carousel">
           <button type="button" data-carousel-prev aria-label="Anterior">←</button>
           <button type="button" data-carousel-next aria-label="Següent">→</button>
         </div>
+        <div class="project-track" data-carousel>
+          {projectItems.map((project) => (
+            <article class="project-card">
+              <img src={project.image} width="960" height="640" alt={project.title} loading="lazy" />
+              <div><span>{project.category}</span><h3>{project.title}</h3><p>{project.description}</p><a href={pageHref(lang, 'projects')}>{common.learnMore}<b aria-hidden="true">→</b></a></div>
+            </article>
+          ))}
+        </div>
       </div>
-      <div class="project-track" data-carousel>
-        {projectItems.map((project) => (
-          <article class="project-card">
-            <img src={project.image} width="960" height="640" alt={project.title} loading="lazy" />
-            <div><span>{project.category}</span><h3>{project.title}</h3><p>{project.description}</p><a href={pageHref(lang, 'projects')}>{common.learnMore}<b aria-hidden="true">→</b></a></div>
-          </article>
-        ))}
+    </div>
+  </section>
+
+  <section class="section about-preview">
+    <div class="shell about-grid">
+      <div class="about-image"><img src="/images/francisca.webp" width="960" height="640" alt="Equip d'Enginyers Bosch" loading="lazy" /></div>
+      <div class="about-content">
+        <h2>{about[lang].title}</h2>
+        <p>{about[lang].body}</p>
       </div>
     </div>
   </section>
@@ -109,7 +119,7 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
             </div>
           </div>
         </div>
-        <ButtonLink href={pageHref(lang, 'contact')} label={common.contactCta} light />
+        <ButtonLink href={contact.whatsappHref} label={common.contactCta} />
       </div>
     </div>
   </section>

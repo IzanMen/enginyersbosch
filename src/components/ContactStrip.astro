@@ -1,7 +1,7 @@
 ---
 import { contact, contactStrip, pageHref, type Lang } from '../data/site';
-interface Props { lang: Lang; }
-const { lang } = Astro.props;
+interface Props { lang: Lang; showDetails?: boolean; }
+const { lang, showDetails = true } = Astro.props;
 const copy = contactStrip[lang];
 ---
 <section class="contact-strip" id="parlem">
@@ -11,11 +11,13 @@ const copy = contactStrip[lang];
       <h2>{copy.title}</h2>
       <div class="contact-strip-detail">
         <p>{copy.body}</p>
-        <div class="contact-strip-data">
-          <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <span>{contact.address}</span>
-        </div>
+        {showDetails && (
+          <div class="contact-strip-data">
+            <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <span>{contact.address}</span>
+          </div>
+        )}
       </div>
     </div>
     <form class="contact-form" novalidate>

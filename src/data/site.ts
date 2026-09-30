@@ -37,6 +37,21 @@ export const ui = {
   },
 } satisfies Record<Lang, unknown>;
 
+export const about = {
+  ca: {
+    title: 'Som un estudi d’enginyeria industrial ubicat a Ciutadella de Menorca.',
+    body: 'Des de 1985, treballam amb particulars, empreses i professionals en projectes d’activitats, instal·lacions, obres i estructures, així com en certificacions i tràmits tècnics. Combinam l’experiència i el coneixement del territori amb una manera de treballar propera i pràctica. Escoltam cada necessitat, estudiam les opcions i t’acompanyam durant el projecte i la seva tramitació davant les administracions.',
+  },
+  es: {
+    title: 'Somos un estudio de ingeniería industrial ubicado en Ciutadella de Menorca.',
+    body: 'Desde 1985, trabajamos con particulares, empresas y profesionales en proyectos de actividades, instalaciones, obras y estructuras, así como en certificaciones y trámites técnicos. Combinamos la experiencia y el conocimiento del territorio con una forma de trabajar cercana y práctica. Escuchamos cada necesidad, estudiamos las opciones y te acompañamos durante el proyecto y su tramitación ante las administraciones.',
+  },
+  en: {
+    title: 'We are an industrial engineering studio based in Ciutadella de Menorca.',
+    body: 'Since 1985, we have worked with private clients, companies and professionals on activity, installation, construction and structural projects, as well as certifications and technical procedures. We combine experience and local knowledge with a practical, approachable way of working. We listen to every need, study the options and support you throughout the project and its administrative process.',
+  },
+} satisfies Record<Lang, { title: string; body: string }>;
+
 const googleReviews = [
   'Jordi es un gran profesional. Hemos contado con él para varios proyectos en comunidades de vecinos y la verdad es que es un 10. Se ha prestado a incontables reuniones con los vecinos para que todos entendieran bien la magnitud de las obras que se iban a realizar. Además, siempre piensa en sus clientes, buscando las opciones más seguras y mirando por su economía. Sin dudarlo, lo recomiendo.',
   'Gran equipo de profesionales. Estamos muy agradecidos a Jordi y Jaume, que siempre están pendientes de cumplir con rapidez y agilidad las necesidades de los clientes. Gracias por la ayuda que siempre nos prestáis.',
@@ -49,11 +64,11 @@ export const home = {
   ca: {
     title: 'Enginyeria que fa possible cada projecte.',
     outlined: 'possible',
-    intro: 'Projectam, dirigim i legalitzam espais, instal·lacions i activitats a Menorca.',
-    statYears: 'Anys d’experiència', statFiles: 'Expedients gestionats', statPlace: 'Estudi a Ciutadella', statSince: 'Al teu costat des de',
-    servicesEyebrow: 'Els nostres serveis', servicesTitle: 'Solucions tècniques, de la idea a la realitat.',
-    servicesIntro: 'Un únic equip per projectar, coordinar i tramitar amb precisió cada fase.',
-    projectsEyebrow: 'Projectes', projectsTitle: 'Resultats que formen part de Menorca.',
+    intro: 'Projectam, dirigim i tramitam obres, instal·lacions i activitats a Menorca. T’acompanyam amb un tracte proper i solucions tècniques adaptades a les teves necessitats.',
+    statYears: 'Anys d’experiència', statFiles: 'Expedients gestionats', statPlace: 'Estudi a Ciutadella', statSince: 'Des de 1985', statSinceText: 'Al teu costat',
+    servicesEyebrow: 'Els nostres serveis', servicesTitle: 'Solucions tècniques per a cada projecte',
+    servicesIntro: 'Des de la redacció del projecte fins a la direcció d’obra i la tramitació, t’oferim el suport tècnic que necessites en cada fase.',
+    projectsEyebrow: 'Projectes', projectsTitle: 'Projectes que formen part de Menorca',
     projectsIntro: 'Una selecció de projectes d’activitats, instal·lacions, construcció i estructures resolts per l’estudi.',
     trustEyebrow: 'Confiança demostrable', trustTitle: 'Quatre dècades resolent allò complex.',
     trustBody: 'Coneixem el territori, la normativa i les administracions. Aquesta experiència ens permet anticipar decisions i donar una resposta tècnica àgil, clara i viable.',
@@ -64,7 +79,7 @@ export const home = {
     title: 'Ingeniería que hace posible cada proyecto.',
     outlined: 'posible',
     intro: 'Proyectamos, dirigimos y legalizamos espacios, instalaciones y actividades en Menorca.',
-    statYears: 'Años de experiencia', statFiles: 'Expedientes gestionados', statPlace: 'Estudio en Ciutadella', statSince: 'A tu lado desde',
+    statYears: 'Años de experiencia', statFiles: 'Expedientes gestionados', statPlace: 'Estudio en Ciutadella', statSince: 'Desde 1985', statSinceText: 'A tu lado',
     servicesEyebrow: 'Nuestros servicios', servicesTitle: 'Soluciones técnicas, de la idea a la realidad.',
     servicesIntro: 'Un único equipo para proyectar, coordinar y tramitar con precisión cada fase.',
     projectsEyebrow: 'Proyectos', projectsTitle: 'Resultados que forman parte de Menorca.',
@@ -78,7 +93,7 @@ export const home = {
     title: 'Engineering that makes every project possible.',
     outlined: 'possible',
     intro: 'We design, manage and legalise spaces, installations and business activities in Menorca.',
-    statYears: 'Years of experience', statFiles: 'Completed dossiers', statPlace: 'Ciutadella studio', statSince: 'By your side since',
+    statYears: 'Years of experience', statFiles: 'Completed dossiers', statPlace: 'Ciutadella studio', statSince: 'Since 1985', statSinceText: 'By your side',
     servicesEyebrow: 'Our services', servicesTitle: 'Technical solutions, from idea to reality.',
     servicesIntro: 'One team to design, coordinate and manage every stage with precision.',
     projectsEyebrow: 'Projects', projectsTitle: 'Results that are part of Menorca.',
@@ -91,46 +106,40 @@ export const home = {
 } satisfies Record<Lang, unknown>;
 
 export const servicePage = {
-  ca: { eyebrow: 'Serveis', title: 'Convertim cada repte en una solució tècnica viable.', intro: 'Enginyeria industrial integral per donar forma, seguretat i recorregut administratiu al teu projecte.' },
+  ca: { eyebrow: 'Els nostres serveis', title: 'Solucions tècniques per a cada projecte', intro: 'Des de la redacció del projecte fins a la direcció d’obra i la tramitació, t’oferim el suport tècnic que necessites en cada fase.' },
   es: { eyebrow: 'Servicios', title: 'Convertimos cada reto en una solución técnica viable.', intro: 'Ingeniería industrial integral para dar forma, seguridad y recorrido administrativo a tu proyecto.' },
   en: { eyebrow: 'Services', title: 'We turn every challenge into a viable technical solution.', intro: 'Integrated industrial engineering that gives your project form, safety and a clear administrative path.' },
 };
 
 export const services = {
   ca: [
-    { id: 'activitats', title: 'Projectes d’activitats i llicències d’obertura', short: 'Definició d’usos, instal·lacions i tramitació per obtenir la llicència d’obertura.', body: 'Redactam i desenvolupam projectes per a comerços, despatxos, indústries, hotels, agroturismes i qualsevol iniciativa empresarial. Especifiquem els usos i dissenyam les instal·lacions segons la normativa vigent, fins a la tramitació de la llicència.', image: '/images/bruixes.webp' },
-    { id: 'construccio', title: 'Construcció', short: 'Projectes bàsics i executius, direcció d’obra i coordinació de seguretat.', body: 'Definim des dels elements constructius més senzills fins a naus industrials i construccions complexes, amb el detall necessari per executar l’obra i coordinar tots els agents que hi intervenen.', image: '/images/diskont.webp' },
-    { id: 'installacions', title: 'Instal·lacions i energies renovables', short: 'Disseny, càlcul i legalització de les instal·lacions de l’edifici.', body: 'Projectam electricitat, climatització, producció d’ACS, fontaneria, sanejament, protecció contra incendis, gas, ventilació, gasoil i energies renovables, inclosa la legalització davant Indústria.', image: '/images/casas.webp' },
-    { id: 'urbanisme', title: 'Urbanisme', short: 'Planejament i projectes d’urbanització per a entitats públiques i promotors.', body: 'Col·laboram en estudis de detall, unitats d’actuació, plans parcials i generals. L’experiència en actuacions com Son Xoriguer o Binimel·là ens dona agilitat administrativa i solvència tècnica.', image: '/images/casas.webp' },
-    { id: 'estructures', title: 'Càlculs estructurals', short: 'Estructures residencials i industrials segures, funcionals i optimitzades.', body: 'Calculam estructures metàl·liques, de formigó armat, mixtes, de fusta i prefabricades; també bigues, pòrtics, voladissos, fonaments, murs de contenció i soterranis.', image: '/images/vivienda.webp' },
-    { id: 'energia', title: 'Certificació energètica d’edificis', short: 'Certificats per a habitatges, edificis plurifamiliars i usos terciaris.', body: 'Realitzam la certificació energètica d’habitatges unifamiliars, habitatges en edificis plurifamiliars, edificis complets, locals comercials, hotels i oficines.', image: '/images/edc.webp' },
-    { id: 'tramits', title: 'Tràmits i certificats', short: 'Gestió tècnica davant les administracions i les companyies de serveis.', body: 'Tramitam noves altes i ampliacions de potència elèctrica, cèdules d’habitabilitat per a locals comercials o industrials, inspeccions tècniques d’edificis i altres certificats.', image: '/images/balear.webp' },
-    { id: 'estudis', title: 'Estudis i solucions', short: 'Anàlisi personalitzada per millorar instal·lacions, consums i funcionalitat.', body: 'Estudiam cada negoci amb l’objectiu de trobar eficiència i solucions concretes davant qualsevol problemàtica funcional, d’instal·lacions o de consum.', image: '/images/raima.webp' },
+    { id: 'activitats', title: 'Projectes d’activitats', short: 'Implantació, reforma o modificació d’activitats en locals, establiments i naus industrials.', body: 'Redactam projectes per a la implantació, reforma o modificació d’activitats en locals, establiments i naus industrials. Definim els usos, les condicions de l’espai i les instal·lacions necessàries, i preparam la documentació tècnica per tramitar l’inici o la modificació de l’activitat davant l’administració.', image: '/images/bruixes.webp' },
+    { id: 'installacions', title: 'Projectes d’instal·lacions', short: 'Disseny, càlcul i legalització d’instal·lacions adaptades a cada edifici i ús.', body: 'Projectam i calculam instal·lacions elèctriques, de climatització, ventilació, fontaneria, sanejament, protecció contra incendis i energies renovables, entre d’altres. Adaptam cada solució a les necessitats de l’edifici i del seu ús, i gestionam la documentació tècnica per a la seva legalització i posada en servei.', image: '/images/casas.webp' },
+    { id: 'obra', title: 'Projectes d’obra', short: 'Obra nova, reforma i adequació d’espais dins el nostre àmbit professional.', body: 'Redactam projectes d’obra nova, reforma i adequació d’espais dins el nostre àmbit professional. Definim les solucions constructives i les instal·lacions, i assumim la direcció d’obra i la coordinació de seguretat i salut segons les necessitats de cada actuació.', image: '/images/diskont.webp' },
+    { id: 'energia', title: 'Certificació energètica', short: 'Certificats d’eficiència energètica per a habitatges, locals i edificis.', body: 'Elaboram certificats d’eficiència energètica de habitatges, locals i edificis. Avaluam les seves característiques constructives i instal·lacions, determinam la qualificació energètica i proposam mesures de millora. També gestionam el registre del certificat davant l’organisme competent.', image: '/images/edc.webp' },
+    { id: 'estructures', title: 'Càlculs estructurals', short: 'Estructures per a obres noves i intervencions en edificis existents.', body: 'Estudiam i calculam estructures per a obres noves i intervencions en edificis existents. Treballam amb estructures metàl·liques, de formigó, fusta i solucions mixtes, i resolvem elements concrets com bigues, pòrtics, fonaments i murs de contenció.', image: '/images/vivienda.webp' },
+    { id: 'tramits', title: 'Tràmits i certificats', short: 'Certificats, informes i documentació tècnica per a gestions administratives.', body: 'Preparam certificats, informes i documentació tècnica per a gestions davant ajuntaments, organismes públics i altres entitats. T’ajudam a identificar la documentació necessària i a donar resposta als requeriments tècnics de cada expedient.', image: '/images/balear.webp' },
   ],
   es: [
-    { id: 'actividades', title: 'Proyectos de actividades y licencias de apertura', short: 'Definición de usos, instalaciones y tramitación para obtener la licencia de apertura.', body: 'Redactamos y desarrollamos proyectos para comercios, despachos, industrias, hoteles, agroturismos y cualquier iniciativa empresarial. Especificamos los usos y diseñamos las instalaciones según la normativa vigente, hasta la tramitación de la licencia.', image: '/images/bruixes.webp' },
-    { id: 'construccion', title: 'Construcción', short: 'Proyectos básicos y ejecutivos, dirección de obra y coordinación de seguridad.', body: 'Definimos desde los elementos constructivos más sencillos hasta naves industriales y construcciones complejas, con el detalle necesario para ejecutar la obra y coordinar a todos los agentes que intervienen.', image: '/images/diskont.webp' },
-    { id: 'instalaciones', title: 'Instalaciones y energías renovables', short: 'Diseño, cálculo y legalización de las instalaciones del edificio.', body: 'Proyectamos electricidad, climatización, producción de ACS, fontanería, saneamiento, protección contra incendios, gas, ventilación, gasoil y energías renovables, incluida la legalización ante Industria.', image: '/images/casas.webp' },
-    { id: 'urbanismo', title: 'Urbanismo', short: 'Planeamiento y proyectos de urbanización para entidades públicas y promotores.', body: 'Colaboramos en estudios de detalle, unidades de actuación, planes parciales y generales. La experiencia en actuaciones como Son Xoriguer o Binimel·là nos aporta agilidad administrativa y solvencia técnica.', image: '/images/casas.webp' },
-    { id: 'estructuras', title: 'Cálculos estructurales', short: 'Estructuras residenciales e industriales seguras, funcionales y optimizadas.', body: 'Calculamos estructuras metálicas, de hormigón armado, mixtas, de madera y prefabricadas; también vigas, pórticos, voladizos, cimentaciones, muros de contención y sótanos.', image: '/images/vivienda.webp' },
-    { id: 'energia', title: 'Certificación energética de edificios', short: 'Certificados para viviendas, edificios plurifamiliares y usos terciarios.', body: 'Realizamos la certificación energética de viviendas unifamiliares, viviendas en edificios plurifamiliares, edificios completos, locales comerciales, hoteles y oficinas.', image: '/images/edc.webp' },
-    { id: 'tramites', title: 'Trámites y certificados', short: 'Gestión técnica ante las administraciones y compañías de servicios.', body: 'Tramitamos nuevas altas y ampliaciones de potencia eléctrica, cédulas de habitabilidad para locales comerciales o industriales, inspecciones técnicas de edificios y otros certificados.', image: '/images/balear.webp' },
-    { id: 'estudios', title: 'Estudios y soluciones', short: 'Análisis personalizado para mejorar instalaciones, consumos y funcionalidad.', body: 'Estudiamos cada negocio con el objetivo de encontrar eficiencia y soluciones concretas ante cualquier problemática funcional, de instalaciones o de consumo.', image: '/images/raima.webp' },
+    { id: 'actividades', title: 'Proyectos de actividades', short: 'Implantación, reforma o modificación de actividades en locales, establecimientos y naves industriales.', body: 'Redactamos proyectos para la implantación, reforma o modificación de actividades en locales, establecimientos y naves industriales. Definimos los usos, las condiciones del espacio y las instalaciones necesarias, y preparamos la documentación técnica para tramitar el inicio o la modificación de la actividad ante la administración.', image: '/images/bruixes.webp' },
+    { id: 'instalaciones', title: 'Proyectos de instalaciones', short: 'Diseño, cálculo y legalización de instalaciones adaptadas a cada edificio y uso.', body: 'Proyectamos y calculamos instalaciones eléctricas, de climatización, ventilación, fontanería, saneamiento, protección contra incendios y energías renovables, entre otras. Adaptamos cada solución a las necesidades del edificio y de su uso, y gestionamos la documentación técnica para su legalización y puesta en servicio.', image: '/images/casas.webp' },
+    { id: 'obra', title: 'Proyectos de obra', short: 'Obra nueva, reforma y adecuación de espacios dentro de nuestro ámbito profesional.', body: 'Redactamos proyectos de obra nueva, reforma y adecuación de espacios dentro de nuestro ámbito profesional. Definimos las soluciones constructivas y las instalaciones, y asumimos la dirección de obra y la coordinación de seguridad y salud según las necesidades de cada actuación.', image: '/images/diskont.webp' },
+    { id: 'energia', title: 'Certificación energética', short: 'Certificados de eficiencia energética para viviendas, locales y edificios.', body: 'Elaboramos certificados de eficiencia energética de viviendas, locales y edificios. Evaluamos sus características constructivas e instalaciones, determinamos la calificación energética y proponemos medidas de mejora. También gestionamos el registro del certificado ante el organismo competente.', image: '/images/edc.webp' },
+    { id: 'estructuras', title: 'Cálculos estructurales', short: 'Estructuras para obras nuevas e intervenciones en edificios existentes.', body: 'Estudiamos y calculamos estructuras para obras nuevas e intervenciones en edificios existentes. Trabajamos con estructuras metálicas, de hormigón, madera y soluciones mixtas, y resolvemos elementos concretos como vigas, pórticos, cimentaciones y muros de contención.', image: '/images/vivienda.webp' },
+    { id: 'tramites', title: 'Trámites y certificados', short: 'Certificados, informes y documentación técnica para gestiones administrativas.', body: 'Preparamos certificados, informes y documentación técnica para gestiones ante ayuntamientos, organismos públicos y otras entidades. Te ayudamos a identificar la documentación necesaria y a dar respuesta a los requerimientos técnicos de cada expediente.', image: '/images/balear.webp' },
   ],
   en: [
-    { id: 'activities', title: 'Business activity projects and opening licences', short: 'Definition of uses, installations and applications required for an opening licence.', body: 'We prepare projects for shops, offices, industry, hotels, agritourism and other businesses. We define uses and design compliant installations, then manage the opening licence process.', image: '/images/bruixes.webp' },
-    { id: 'construction', title: 'Construction', short: 'Concept and detailed design, site management and health and safety coordination.', body: 'We define anything from simple construction elements to industrial units and complex buildings, providing the detail required to deliver the works and coordinate every party involved.', image: '/images/diskont.webp' },
-    { id: 'installations', title: 'Installations and renewable energy', short: 'Design, calculation and legalisation of building installations.', body: 'We design electrical, climate control, hot water, plumbing, drainage, fire protection, gas, ventilation, fuel and renewable-energy systems, including their legalisation with the authorities.', image: '/images/casas.webp' },
-    { id: 'planning', title: 'Urban planning', short: 'Planning and urban development projects for public bodies and private developers.', body: 'We work on detailed studies, action units and partial or general plans. Projects such as Son Xoriguer and Binimel·là give us proven administrative agility and technical expertise.', image: '/images/casas.webp' },
-    { id: 'structures', title: 'Structural calculations', short: 'Safe, functional and optimised residential and industrial structures.', body: 'We calculate steel, reinforced-concrete, composite, timber and precast structures, as well as beams, frames, cantilevers, foundations, retaining walls and basements.', image: '/images/vivienda.webp' },
-    { id: 'energy', title: 'Building energy certification', short: 'Certificates for houses, apartment buildings and commercial properties.', body: 'We provide energy certificates for detached and multi-family homes, full residential buildings, commercial premises, hotels and offices.', image: '/images/edc.webp' },
-    { id: 'procedures', title: 'Applications and certificates', short: 'Technical administration with public authorities and utility companies.', body: 'We handle new electricity supplies and capacity increases, occupancy certificates for commercial or industrial premises, building inspections and other technical certificates.', image: '/images/balear.webp' },
-    { id: 'studies', title: 'Studies and solutions', short: 'Tailored analysis to improve installations, consumption and functionality.', body: 'We study each business to find efficient, concrete solutions for functional, installation and energy-consumption challenges.', image: '/images/raima.webp' },
+    { id: 'activities', title: 'Activity projects', short: 'Implementation, refurbishment or modification of activities in premises, establishments and industrial units.', body: 'We prepare projects for the implementation, refurbishment or modification of activities in premises, establishments and industrial units. We define the uses, the conditions of the space and the required installations, and prepare the technical documentation to process the start or modification of the activity with the authorities.', image: '/images/bruixes.webp' },
+    { id: 'installations', title: 'Installation projects', short: 'Design, calculation and legalisation of installations adapted to each building and use.', body: 'We design and calculate electrical, climate control, ventilation, plumbing, drainage, fire protection and renewable energy installations, among others. We adapt each solution to the needs of the building and its use, and manage the technical documentation for legalisation and commissioning.', image: '/images/casas.webp' },
+    { id: 'works', title: 'Building works projects', short: 'New-build, refurbishment and space adaptation projects within our professional scope.', body: 'We prepare new-build, refurbishment and space adaptation projects within our professional scope. We define construction solutions and installations, and undertake site management and health and safety coordination according to the needs of each project.', image: '/images/diskont.webp' },
+    { id: 'energy', title: 'Energy certification', short: 'Energy efficiency certificates for homes, premises and buildings.', body: 'We prepare energy efficiency certificates for homes, premises and buildings. We assess their construction characteristics and installations, determine the energy rating and propose improvement measures. We also manage the registration of the certificate with the competent authority.', image: '/images/edc.webp' },
+    { id: 'structures', title: 'Structural calculations', short: 'Structures for new works and interventions in existing buildings.', body: 'We study and calculate structures for new works and interventions in existing buildings. We work with steel, concrete, timber and mixed structures, and resolve specific elements such as beams, frames, foundations and retaining walls.', image: '/images/vivienda.webp' },
+    { id: 'procedures', title: 'Procedures and certificates', short: 'Certificates, reports and technical documentation for administrative procedures.', body: 'We prepare certificates, reports and technical documentation for procedures with town councils, public bodies and other entities. We help you identify the required documentation and respond to the technical requirements of each file.', image: '/images/balear.webp' },
   ],
 } satisfies Record<Lang, Array<{ id: string; title: string; short: string; body: string; image: string }>>;
 
 export const projectPage = {
-  ca: { eyebrow: 'Projectes', title: 'Una selecció de projectes realitzats durant més de 40 anys.', intro: 'Solucions d’enginyeria implantades en hotels, comerços, indústria, restauració i habitatge arreu de Menorca.', filter: 'Filtrar projectes' },
+  ca: { eyebrow: 'Projectes', title: 'Projectes que formen part de Menorca', intro: 'Solucions d’enginyeria implantades en hotels, comerços, indústria, restauració i habitatge arreu de Menorca.', filter: 'Filtrar projectes' },
   es: { eyebrow: 'Proyectos', title: 'Una selección de proyectos realizados durante más de 40 años.', intro: 'Soluciones de ingeniería implantadas en hoteles, comercios, industria, restauración y vivienda por toda Menorca.', filter: 'Filtrar proyectos' },
   en: { eyebrow: 'Projects', title: 'A selection of projects delivered over more than 40 years.', intro: 'Engineering solutions implemented in hotels, shops, industry, hospitality and housing across Menorca.', filter: 'Filter projects' },
 };
@@ -169,21 +178,22 @@ export const projects = {
 } satisfies Record<Lang, Array<{ slug: string; title: string; category: string; description: string; image: string }>>;
 
 export const contactPage = {
-  ca: { eyebrow: 'Contacte', title: 'El teu projecte comença amb una conversa.', intro: 'Explica’ns què necessites. T’ajudarem a ordenar el procés i a trobar la solució tècnica adequada.', visit: 'Visita’ns a Ciutadella' },
+  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne', intro: 'Si vols iniciar una activitat, executar una obra, renovar una instal·lació o gestionar un tràmit tècnic, explica’ns què necessites. Estudiarem el teu cas i t’orientarem sobre els passos a seguir.', visit: 'Visita’ns a Ciutadella' },
   es: { eyebrow: 'Contacto', title: 'Tu proyecto empieza con una conversación.', intro: 'Cuéntanos qué necesitas. Te ayudaremos a ordenar el proceso y a encontrar la solución técnica adecuada.', visit: 'Visítanos en Ciutadella' },
   en: { eyebrow: 'Contact', title: 'Your project starts with a conversation.', intro: 'Tell us what you need. We will help structure the process and find the right technical solution.', visit: 'Visit us in Ciutadella' },
 };
 
 export const contact = {
-  phoneDisplay: '(+34) 971 38 48 26', phoneHref: 'tel:+34971384826', email: 'oficina@enginyersbosch.com',
+  phoneDisplay: '(+34) 971 38 48 26', phoneHref: 'tel:+34971384826', whatsappHref: 'https://wa.me/34971384826', email: 'oficina@enginyersbosch.com',
   address: 'C/ Comerciants i Botiguers, 23, 1r · Locals 6 i 7 (POICI), 07760 Ciutadella de Menorca',
   mapsHref: 'https://www.google.com/maps/search/?api=1&query=40.005883%2C3.8586725',
   osmEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=3.8527%2C40.0029%2C3.8647%2C40.0089&layer=mapnik&marker=40.005883%2C3.8586725',
   facebook: 'https://www.facebook.com/Enginyersbosch/',
+  instagram: 'https://www.instagram.com/jordiboschingenieria/',
 };
 
 export const contactStrip = {
-  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne.', body: 'Una conversa clara és el primer pas per convertir una necessitat en una solució viable.', formTitle: 'Explica’ns el teu projecte', formIntro: 'Dona’ns els primers detalls i estudiarem com et podem ajudar.', name: 'Nom i cognoms', phone: 'Telèfon', email: 'Correu electrònic', message: 'En què et podem ajudar?', privacy: 'He llegit i accepto la', privacyLink: 'política de privacitat', send: 'Enviar consulta' },
+  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne', body: 'Si vols iniciar una activitat, executar una obra, renovar una instal·lació o gestionar un tràmit tècnic, explica’ns què necessites. Estudiarem el teu cas i t’orientarem sobre els passos a seguir.', formTitle: 'Explica’ns el teu projecte', formIntro: 'Dona’ns els primers detalls i estudiarem com et podem ajudar.', name: 'Nom i cognoms', phone: 'Telèfon', email: 'Correu electrònic', message: 'En què et podem ajudar?', privacy: 'He llegit i accepto la', privacyLink: 'política de privacitat', send: 'Enviar consulta' },
   es: { eyebrow: '¿Tienes un proyecto?', title: 'Hablemos.', body: 'Una conversación clara es el primer paso para convertir una necesidad en una solución viable.', formTitle: 'Cuéntanos tu proyecto', formIntro: 'Danos los primeros detalles y estudiaremos cómo podemos ayudarte.', name: 'Nombre y apellidos', phone: 'Teléfono', email: 'Correo electrónico', message: '¿En qué podemos ayudarte?', privacy: 'He leído y acepto la', privacyLink: 'política de privacidad', send: 'Enviar consulta' },
   en: { eyebrow: 'Have a project?', title: 'Let’s talk.', body: 'A clear conversation is the first step in turning a requirement into a viable solution.', formTitle: 'Tell us about your project', formIntro: 'Share the first details and we will consider how we can help.', name: 'Full name', phone: 'Phone', email: 'Email address', message: 'How can we help?', privacy: 'I have read and accept the', privacyLink: 'privacy policy', send: 'Send enquiry' },
 };
