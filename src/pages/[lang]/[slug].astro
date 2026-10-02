@@ -47,7 +47,7 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
               <h2>{service.title}</h2>
               <p class="service-short">{service.short}</p>
               <p>{service.body}</p>
-              <ButtonLink href={contact.whatsappHref} label={common.contactCta} outline />
+              <ButtonLink href={contact.whatsappHref} label={common.contactCta} icon="whatsapp" outline />
             </div>
           </article>
         ))}
@@ -98,7 +98,7 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
 
   {current === 'contact' && (
     <>
-      <InnerHero lang={lang} eyebrow={contactPage[lang].eyebrow} title={contactPage[lang].title} intro={contactPage[lang].intro} />
+      <ContactStrip lang={lang} formOnly eyebrow={contactPage[lang].eyebrow} title={contactPage[lang].title} intro={contactPage[lang].intro} />
       <section class="location-section shell">
         <div class="location-map">
           <iframe src={contact.osmEmbed} title="Enginyers Bosch — Ciutadella de Menorca" loading="lazy"></iframe>
@@ -116,7 +116,6 @@ const groupFor: Record<string, keyof typeof groupLabels> = { 'ses-bruixes': 'hos
           <ButtonLink href={contact.mapsHref} label={common.directions} light />
         </div>
       </section>
-      <ContactStrip lang={lang} showDetails={false} />
     </>
   )}
 

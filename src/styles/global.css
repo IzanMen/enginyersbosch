@@ -59,7 +59,8 @@ p { text-wrap: pretty; }
 
 .pill { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.1rem; width: max-content; max-width: 100%; min-height: 42px; border: 1px solid var(--blue); border-radius: 999px; padding: .55rem 1rem; background: var(--blue); color: white; font-size: .84rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: color .2s ease, background-color .2s ease; }
 .pill svg { width: 17px; flex: 0 0 17px; transition: transform .2s ease; }
-.pill:hover svg { transform: translateX(.25rem); }
+.pill .pill-whatsapp { width: 19px; flex-basis: 19px; }
+.pill:hover svg:not(.pill-whatsapp) { transform: translateX(.25rem); }
 .pill:hover { background: transparent; color: var(--blue); }
 .pill-light { border-color: white; background: white; color: var(--blue); }
 .pill-light:hover { background: transparent; color: white; }
@@ -151,6 +152,8 @@ p { text-wrap: pretty; }
 .review-card { position: relative; min-height: 230px; display: flex; flex-direction: column; padding: 1.4rem 1.5rem 1.2rem 3.75rem; background: white; color: var(--blue); scroll-snap-align: start; }
 .review-card p { margin-bottom: 1.25rem; font-size: clamp(.84rem, 1vw, .98rem); font-weight: 600; line-height: 1.55; }
 .review-card footer { margin-top: auto; border-top: 1px solid rgb(49 68 54 / 15%); padding-top: .75rem; color: var(--blue-soft); font-size: .68rem; font-weight: 700; }
+.review-card footer strong, .review-card footer span { display: block; }
+.review-card footer strong { margin-bottom: .16rem; color: var(--blue); font-size: .78rem; }
 .review-quote { position: absolute; top: .7rem; left: 1.25rem; color: var(--aqua); font-family: Georgia, serif; font-size: 4rem; line-height: 1; }
 .review-controls { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; }
 .review-controls > span { font-size: .68rem; font-weight: 600; letter-spacing: .08em; }
@@ -160,6 +163,12 @@ p { text-wrap: pretty; }
 
 .contact-strip { padding-block: clamp(3.25rem, 5.5vw, 5.5rem); background: var(--white); }
 .contact-strip-grid { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); gap: clamp(3rem, 7vw, 8rem); align-items: stretch; }
+.contact-strip-form-only { padding-top: clamp(1.75rem, 3.5vw, 3.5rem); }
+.contact-page-contact .breadcrumb { margin-bottom: clamp(3rem, 6vw, 5.5rem); }
+.contact-page-grid { display: grid; grid-template-columns: minmax(18rem, .7fr) minmax(0, 1.3fr); gap: clamp(3rem, 7vw, 8rem); align-items: start; }
+.contact-page-copy { position: sticky; top: 118px; }
+.contact-page-copy h1 { margin: 0 0 1.5rem; color: var(--blue); font-size: clamp(2.55rem, 4.5vw, 4.35rem); font-weight: 800; line-height: 1.04; }
+.contact-page-copy p { max-width: 34rem; margin: 0; font-size: clamp(.96rem, 1.1vw, 1.05rem); }
 .contact-strip-intro { display: flex; flex-direction: column; align-items: flex-start; }
 .contact-strip h2 { font-size: clamp(2rem, 4vw, 4.1rem); }
 .contact-strip-detail { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
@@ -223,7 +232,7 @@ p { text-wrap: pretty; }
 .project-more[open] summary b { transform: rotate(45deg); }
 .project-more p { margin: 1rem 0 0; }
 
-.location-section { display: grid; grid-template-columns: 1.25fr .75fr; padding-bottom: var(--section); }
+.location-section { display: grid; grid-template-columns: 1.25fr .75fr; padding-top: clamp(.5rem, 2vw, 1.5rem); padding-bottom: var(--section); }
 .location-map { position: relative; min-height: 620px; background: var(--ice); }
 .location-map iframe { width: 100%; height: 100%; border: 0; }
 .location-map small { position: absolute; right: .5rem; bottom: .35rem; padding: .15rem .3rem; background: rgb(255 255 255 / 85%); font-size: .58rem; }
@@ -317,6 +326,12 @@ p { text-wrap: pretty; }
   .review-track { width: 100%; min-width: 0; }
   .contact-strip { padding-block: 3rem; }
   .contact-strip-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .contact-strip-form-only { padding-top: 2rem; }
+  .contact-page-contact .breadcrumb { margin-bottom: 3.5rem; }
+  .contact-page-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-page-copy { position: static; }
+  .contact-page-copy h1 { margin-bottom: 1rem; font-size: clamp(2rem, 9.5vw, 2.65rem); }
+  .contact-page-copy p { max-width: 38rem; }
   .contact-strip-detail { margin-top: 1rem; }
   .contact-strip-detail > p { margin-bottom: 1.25rem; }
   .contact-form { padding: 0; }

@@ -1,8 +1,12 @@
 ---
-interface Props { href: string; label: string; light?: boolean; outline?: boolean; class?: string; }
-const { href, label, light = false, outline = false, class: className = '' } = Astro.props;
+interface Props { href: string; label: string; light?: boolean; outline?: boolean; class?: string; icon?: 'arrow' | 'whatsapp'; }
+const { href, label, light = false, outline = false, class: className = '', icon = 'arrow' } = Astro.props;
 ---
 <a class:list={['pill', { 'pill-light': light, 'pill-outline': outline }, className]} href={href}>
   <span>{label}</span>
-  <svg aria-hidden="true" viewBox="0 0 17 11"><path d="M9.96.181a.5.5 0 0 1 .704-.067l5.908 4.877a.502.502 0 0 1 0 .771l-5.909 4.876a.5.5 0 0 1-.635-.771l4.834-3.99H.5a.5.5 0 0 1 0-1h14.362L10.028.885a.5.5 0 0 1-.067-.704Z" fill="currentColor" /></svg>
+  {icon === 'whatsapp' ? (
+    <svg class="pill-whatsapp" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.04 2C6.55 2 2.08 6.44 2.08 11.9c0 1.75.46 3.45 1.34 4.95L2 22l5.3-1.38a10.05 10.05 0 0 0 4.74 1.2c5.49 0 9.96-4.44 9.96-9.9C22 6.44 17.53 2 12.04 2Zm0 18.14c-1.52 0-3-.41-4.29-1.17l-.31-.18-3.14.82.84-3.05-.2-.31a8.14 8.14 0 0 1-1.24-4.33c0-4.53 3.74-8.22 8.34-8.22 4.6 0 8.34 3.69 8.34 8.22 0 4.53-3.74 8.22-8.34 8.22Zm4.57-6.16c-.25-.13-1.49-.73-1.72-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.97-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.02-1.24-.75-.66-1.25-1.48-1.4-1.73-.15-.25-.02-.39.11-.52.12-.12.25-.3.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.36-.78-1.86-.2-.48-.41-.42-.57-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.85-.88 2.08 0 1.23.9 2.42 1.03 2.58.13.17 1.78 2.69 4.31 3.77.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.49-.6 1.7-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" fill="currentColor" /></svg>
+  ) : (
+    <svg aria-hidden="true" viewBox="0 0 17 11"><path d="M9.96.181a.5.5 0 0 1 .704-.067l5.908 4.877a.502.502 0 0 1 0 .771l-5.909 4.876a.5.5 0 0 1-.635-.771l4.834-3.99H.5a.5.5 0 0 1 0-1h14.362L10.028.885a.5.5 0 0 1-.067-.704Z" fill="currentColor" /></svg>
+  )}
 </a>

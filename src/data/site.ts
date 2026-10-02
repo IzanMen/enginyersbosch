@@ -53,11 +53,26 @@ export const about = {
 } satisfies Record<Lang, { title: string; body: string }>;
 
 const googleReviews = [
-  'Jordi es un gran profesional. Hemos contado con él para varios proyectos en comunidades de vecinos y la verdad es que es un 10. Se ha prestado a incontables reuniones con los vecinos para que todos entendieran bien la magnitud de las obras que se iban a realizar. Además, siempre piensa en sus clientes, buscando las opciones más seguras y mirando por su economía. Sin dudarlo, lo recomiendo.',
-  'Gran equipo de profesionales. Estamos muy agradecidos a Jordi y Jaume, que siempre están pendientes de cumplir con rapidez y agilidad las necesidades de los clientes. Gracias por la ayuda que siempre nos prestáis.',
-  'Empresa muy cercana. Cualquier problema que hemos tenido nos lo han solucionado y han estado muy pendientes de nuestra marca. Profesionales y rápidos.',
-  'Muy ágiles y eficaces en la tramitación de la licencia.',
-  'Molt agraïda del vostre servei tan professional i bon tracte.',
+  {
+    author: 'Noemi Vega',
+    text: 'Jordi es un gran profesional. Hemos contado con él para varios proyectos en comunidades de vecinos y la verdad es que es un 10. Se ha prestado a incontables reuniones con los vecinos para que todos entendieran bien la magnitud de las obras que se iban a realizar. Además, siempre piensa en sus clientes, buscando las opciones más seguras y mirando por su economía. Sin dudarlo, lo recomiendo.',
+  },
+  {
+    author: 'InmoMenorcaCentro Real Estate',
+    text: 'Gran equipo de profesionales. Estamos muy agradecidos a Jordi y Jaume, que siempre están pendientes de cumplir con rapidez y agilidad las necesidades de los clientes. Gracias por la ayuda que siempre nos prestáis.',
+  },
+  {
+    author: 'Iris Ametller Monserrat',
+    text: 'Empresa muy cercana. Cualquier problema que hemos tenido nos lo han solucionado y han estado muy pendientes de nuestra marca. Profesionales y rápidos.',
+  },
+  {
+    author: 'Cristofol Marti',
+    text: 'Muy ágiles y eficaces en la tramitación de la licencia.',
+  },
+  {
+    author: 'Paz Torres',
+    text: 'Molt agraïda del vostre servei tan professional i bon tracte.',
+  },
 ];
 
 export const home = {
@@ -113,7 +128,7 @@ export const servicePage = {
 
 export const services = {
   ca: [
-    { id: 'activitats', title: 'Projectes d’activitats', short: 'Implantació, reforma o modificació d’activitats en locals, establiments i naus industrials.', body: 'Redactam projectes per a la implantació, reforma o modificació d’activitats en locals, establiments i naus industrials. Definim els usos, les condicions de l’espai i les instal·lacions necessàries, i preparam la documentació tècnica per tramitar l’inici o la modificació de l’activitat davant l’administració.', image: '/images/bruixes.webp' },
+    { id: 'activitats', title: 'Projectes d’activitats', short: 'Implantació, reforma o modificació d’activitats en locals, establiments i naus industrials.', body: 'Definim els usos, les condicions de l’espai i les instal·lacions necessàries per al desenvolupament de l’activitat. Redactam el projecte i preparam la documentació tècnica per tramitar-ne l’inici o la modificació davant l’administració.', image: '/images/bruixes.webp' },
     { id: 'installacions', title: 'Projectes d’instal·lacions', short: 'Disseny, càlcul i legalització d’instal·lacions adaptades a cada edifici i ús.', body: 'Projectam i calculam instal·lacions elèctriques, de climatització, ventilació, fontaneria, sanejament, protecció contra incendis i energies renovables, entre d’altres. Adaptam cada solució a les necessitats de l’edifici i del seu ús, i gestionam la documentació tècnica per a la seva legalització i posada en servei.', image: '/images/casas.webp' },
     { id: 'obra', title: 'Projectes d’obra', short: 'Obra nova, reforma i adequació d’espais dins el nostre àmbit professional.', body: 'Redactam projectes d’obra nova, reforma i adequació d’espais dins el nostre àmbit professional. Definim les solucions constructives i les instal·lacions, i assumim la direcció d’obra i la coordinació de seguretat i salut segons les necessitats de cada actuació.', image: '/images/diskont.webp' },
     { id: 'energia', title: 'Certificació energètica', short: 'Certificats d’eficiència energètica per a habitatges, locals i edificis.', body: 'Elaboram certificats d’eficiència energètica de habitatges, locals i edificis. Avaluam les seves característiques constructives i instal·lacions, determinam la qualificació energètica i proposam mesures de millora. També gestionam el registre del certificat davant l’organisme competent.', image: '/images/edc.webp' },
@@ -121,7 +136,7 @@ export const services = {
     { id: 'tramits', title: 'Tràmits i certificats', short: 'Certificats, informes i documentació tècnica per a gestions administratives.', body: 'Preparam certificats, informes i documentació tècnica per a gestions davant ajuntaments, organismes públics i altres entitats. T’ajudam a identificar la documentació necessària i a donar resposta als requeriments tècnics de cada expedient.', image: '/images/balear.webp' },
   ],
   es: [
-    { id: 'actividades', title: 'Proyectos de actividades', short: 'Implantación, reforma o modificación de actividades en locales, establecimientos y naves industriales.', body: 'Redactamos proyectos para la implantación, reforma o modificación de actividades en locales, establecimientos y naves industriales. Definimos los usos, las condiciones del espacio y las instalaciones necesarias, y preparamos la documentación técnica para tramitar el inicio o la modificación de la actividad ante la administración.', image: '/images/bruixes.webp' },
+    { id: 'actividades', title: 'Proyectos de actividades', short: 'Implantación, reforma o modificación de actividades en locales, establecimientos y naves industriales.', body: 'Definimos los usos, las condiciones del espacio y las instalaciones necesarias para el desarrollo de la actividad. Redactamos el proyecto y preparamos la documentación técnica para tramitar su inicio o modificación ante la administración.', image: '/images/bruixes.webp' },
     { id: 'instalaciones', title: 'Proyectos de instalaciones', short: 'Diseño, cálculo y legalización de instalaciones adaptadas a cada edificio y uso.', body: 'Proyectamos y calculamos instalaciones eléctricas, de climatización, ventilación, fontanería, saneamiento, protección contra incendios y energías renovables, entre otras. Adaptamos cada solución a las necesidades del edificio y de su uso, y gestionamos la documentación técnica para su legalización y puesta en servicio.', image: '/images/casas.webp' },
     { id: 'obra', title: 'Proyectos de obra', short: 'Obra nueva, reforma y adecuación de espacios dentro de nuestro ámbito profesional.', body: 'Redactamos proyectos de obra nueva, reforma y adecuación de espacios dentro de nuestro ámbito profesional. Definimos las soluciones constructivas y las instalaciones, y asumimos la dirección de obra y la coordinación de seguridad y salud según las necesidades de cada actuación.', image: '/images/diskont.webp' },
     { id: 'energia', title: 'Certificación energética', short: 'Certificados de eficiencia energética para viviendas, locales y edificios.', body: 'Elaboramos certificados de eficiencia energética de viviendas, locales y edificios. Evaluamos sus características constructivas e instalaciones, determinamos la calificación energética y proponemos medidas de mejora. También gestionamos el registro del certificado ante el organismo competente.', image: '/images/edc.webp' },
@@ -129,7 +144,7 @@ export const services = {
     { id: 'tramites', title: 'Trámites y certificados', short: 'Certificados, informes y documentación técnica para gestiones administrativas.', body: 'Preparamos certificados, informes y documentación técnica para gestiones ante ayuntamientos, organismos públicos y otras entidades. Te ayudamos a identificar la documentación necesaria y a dar respuesta a los requerimientos técnicos de cada expediente.', image: '/images/balear.webp' },
   ],
   en: [
-    { id: 'activities', title: 'Activity projects', short: 'Implementation, refurbishment or modification of activities in premises, establishments and industrial units.', body: 'We prepare projects for the implementation, refurbishment or modification of activities in premises, establishments and industrial units. We define the uses, the conditions of the space and the required installations, and prepare the technical documentation to process the start or modification of the activity with the authorities.', image: '/images/bruixes.webp' },
+    { id: 'activities', title: 'Activity projects', short: 'Implementation, refurbishment or modification of activities in premises, establishments and industrial units.', body: 'We define the uses, the conditions of the space and the installations required for the activity to operate. We prepare the project and the technical documentation needed to process its start or modification with the authorities.', image: '/images/bruixes.webp' },
     { id: 'installations', title: 'Installation projects', short: 'Design, calculation and legalisation of installations adapted to each building and use.', body: 'We design and calculate electrical, climate control, ventilation, plumbing, drainage, fire protection and renewable energy installations, among others. We adapt each solution to the needs of the building and its use, and manage the technical documentation for legalisation and commissioning.', image: '/images/casas.webp' },
     { id: 'works', title: 'Building works projects', short: 'New-build, refurbishment and space adaptation projects within our professional scope.', body: 'We prepare new-build, refurbishment and space adaptation projects within our professional scope. We define construction solutions and installations, and undertake site management and health and safety coordination according to the needs of each project.', image: '/images/diskont.webp' },
     { id: 'energy', title: 'Energy certification', short: 'Energy efficiency certificates for homes, premises and buildings.', body: 'We prepare energy efficiency certificates for homes, premises and buildings. We assess their construction characteristics and installations, determine the energy rating and propose improvement measures. We also manage the registration of the certificate with the competent authority.', image: '/images/edc.webp' },
@@ -178,9 +193,9 @@ export const projects = {
 } satisfies Record<Lang, Array<{ slug: string; title: string; category: string; description: string; image: string }>>;
 
 export const contactPage = {
-  ca: { eyebrow: 'Tens un projecte?', title: 'Parlem-ne', intro: 'Si vols iniciar una activitat, executar una obra, renovar una instal·lació o gestionar un tràmit tècnic, explica’ns què necessites. Estudiarem el teu cas i t’orientarem sobre els passos a seguir.', visit: 'Visita’ns a Ciutadella' },
-  es: { eyebrow: 'Contacto', title: 'Tu proyecto empieza con una conversación.', intro: 'Cuéntanos qué necesitas. Te ayudaremos a ordenar el proceso y a encontrar la solución técnica adecuada.', visit: 'Visítanos en Ciutadella' },
-  en: { eyebrow: 'Contact', title: 'Your project starts with a conversation.', intro: 'Tell us what you need. We will help structure the process and find the right technical solution.', visit: 'Visit us in Ciutadella' },
+  ca: { eyebrow: 'Tens un projecte?', title: 'Contacte', intro: 'Si vols iniciar una activitat, executar una obra, renovar una instal·lació o gestionar un tràmit tècnic, explica’ns què necessites. Estudiarem el teu cas i t’orientarem sobre els passos a seguir.', visit: 'Visita’ns a Ciutadella' },
+  es: { eyebrow: 'Contacto', title: 'Contacto', intro: 'Cuéntanos qué necesitas. Te ayudaremos a ordenar el proceso y a encontrar la solución técnica adecuada.', visit: 'Visítanos en Ciutadella' },
+  en: { eyebrow: 'Contact', title: 'Contact', intro: 'Tell us what you need. We will help structure the process and find the right technical solution.', visit: 'Visit us in Ciutadella' },
 };
 
 export const contact = {

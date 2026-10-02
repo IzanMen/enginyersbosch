@@ -1,57 +1,102 @@
 ---
-import { contact, contactStrip, pageHref, type Lang } from '../data/site';
-interface Props { lang: Lang; showDetails?: boolean; }
-const { lang, showDetails = true } = Astro.props;
+import { contact, contactStrip, pageHref, ui, type Lang } from '../data/site';
+interface Props { lang: Lang; showDetails?: boolean; formOnly?: boolean; eyebrow?: string; title?: string; intro?: string; }
+const { lang, showDetails = true, formOnly = false, eyebrow, title, intro } = Astro.props;
 const copy = contactStrip[lang];
 ---
-<section class="contact-strip" id="parlem">
-  <div class="shell contact-strip-grid">
-    <div class="contact-strip-intro">
-      <p class="eyebrow">{copy.eyebrow}</p>
-      <h2>{copy.title}</h2>
-      <div class="contact-strip-detail">
-        <p>{copy.body}</p>
-        {showDetails && (
-          <div class="contact-strip-data">
-            <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <span>{contact.address}</span>
+<section class:list={['contact-strip', { 'contact-strip-form-only': formOnly }]} id="parlem">
+  {formOnly ? (
+    <div class="shell contact-page-contact">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href={pageHref(lang, 'home')}>{ui[lang].breadcrumb}</a><span>/</span><span>{eyebrow ?? copy.eyebrow}</span></nav>
+      <div class="contact-page-grid">
+        <div class="contact-page-copy">
+          <h1>{title ?? copy.title}</h1>
+          {intro && <p>{intro}</p>}
+        </div>
+        <form class="contact-form" novalidate>
+          <div class="contact-form-heading">
+            <h3>{copy.formTitle}</h3>
+            <p>{copy.formIntro}</p>
           </div>
-        )}
+          <div class="contact-form-grid">
+            <label>
+              <span>{copy.name}</span>
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+            <label>
+              <span>{copy.phone}</span>
+              <input type="tel" name="phone" autocomplete="tel" />
+            </label>
+            <label class="contact-form-wide">
+              <span>{copy.email}</span>
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+            <label class="contact-form-wide">
+              <span>{copy.message}</span>
+              <textarea name="message" rows="4"></textarea>
+            </label>
+          </div>
+          <div class="contact-form-footer">
+            <label class="contact-form-privacy">
+              <input type="checkbox" name="privacy" />
+              <span>{copy.privacy} <a href={pageHref(lang, 'privacy')}>{copy.privacyLink}</a>.</span>
+            </label>
+            <button class="pill contact-form-submit" type="button">
+              <span>{copy.send}</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-    <form class="contact-form" novalidate>
-      <div class="contact-form-heading">
-        <h3>{copy.formTitle}</h3>
-        <p>{copy.formIntro}</p>
+  ) : (
+    <div class="shell contact-strip-grid">
+      <div class="contact-strip-intro">
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h2>{copy.title}</h2>
+        <div class="contact-strip-detail">
+          <p>{copy.body}</p>
+          {showDetails && (
+            <div class="contact-strip-data">
+              <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <span>{contact.address}</span>
+            </div>
+          )}
+        </div>
       </div>
-      <div class="contact-form-grid">
-        <label>
-          <span>{copy.name}</span>
-          <input type="text" name="name" autocomplete="name" />
-        </label>
-        <label>
-          <span>{copy.phone}</span>
-          <input type="tel" name="phone" autocomplete="tel" />
-        </label>
-        <label class="contact-form-wide">
-          <span>{copy.email}</span>
-          <input type="email" name="email" autocomplete="email" />
-        </label>
-        <label class="contact-form-wide">
-          <span>{copy.message}</span>
-          <textarea name="message" rows="4"></textarea>
-        </label>
-      </div>
-      <div class="contact-form-footer">
-        <label class="contact-form-privacy">
-          <input type="checkbox" name="privacy" />
-          <span>{copy.privacy} <a href={pageHref(lang, 'privacy')}>{copy.privacyLink}</a>.</span>
-        </label>
-        <button class="pill contact-form-submit" type="button">
-          <span>{copy.send}</span><span aria-hidden="true">→</span>
-        </button>
-      </div>
-    </form>
-  </div>
+      <form class="contact-form" novalidate>
+        <div class="contact-form-heading">
+          <h3>{copy.formTitle}</h3>
+          <p>{copy.formIntro}</p>
+        </div>
+        <div class="contact-form-grid">
+          <label>
+            <span>{copy.name}</span>
+            <input type="text" name="name" autocomplete="name" />
+          </label>
+          <label>
+            <span>{copy.phone}</span>
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label class="contact-form-wide">
+            <span>{copy.email}</span>
+            <input type="email" name="email" autocomplete="email" />
+          </label>
+          <label class="contact-form-wide">
+            <span>{copy.message}</span>
+            <textarea name="message" rows="4"></textarea>
+          </label>
+        </div>
+        <div class="contact-form-footer">
+          <label class="contact-form-privacy">
+            <input type="checkbox" name="privacy" />
+            <span>{copy.privacy} <a href={pageHref(lang, 'privacy')}>{copy.privacyLink}</a>.</span>
+          </label>
+          <button class="pill contact-form-submit" type="button">
+            <span>{copy.send}</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  )}
 </section>

@@ -27,7 +27,7 @@ const items: Array<[PageKey, string]> = [['services', copy.nav.services], ['proj
       <summary aria-label="Idioma">{copy.localeName}<span aria-hidden="true">⌄</span></summary>
       <div>{languages.filter((code) => code !== lang).map((code) => <a href={pageHref(code, current)}>{ui[code].localeName}</a>)}</div>
     </details>
-    <ButtonLink href={contact.whatsappHref} label={copy.contactCta} class="header-cta" />
+    <ButtonLink href={contact.whatsappHref} label={copy.contactCta} icon="whatsapp" class="header-cta" />
     <details class="mobile-menu">
       <summary aria-label="Menu"><span></span><span></span></summary>
       <div class="mobile-panel">
@@ -44,7 +44,7 @@ const items: Array<[PageKey, string]> = [['services', copy.nav.services], ['proj
           </a>
         </div>
         <div class="mobile-languages">{languages.map((code) => <a href={pageHref(code, current)} aria-current={code === lang ? 'true' : undefined}>{ui[code].localeName}</a>)}</div>
-        <ButtonLink href={contact.whatsappHref} label={copy.contactCta} />
+        <ButtonLink href={contact.whatsappHref} label={copy.contactCta} icon="whatsapp" />
       </div>
     </details>
   </div>

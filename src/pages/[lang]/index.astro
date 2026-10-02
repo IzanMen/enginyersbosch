@@ -24,7 +24,7 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
       <h1>{titleBefore}<em>{copy.outlined}</em>{titleAfter}</h1>
       <div>
         <p>{copy.intro}</p>
-        <ButtonLink href={contact.whatsappHref} label={common.contactCta} outline />
+        <ButtonLink href={contact.whatsappHref} label={common.contactCta} icon="whatsapp" outline />
       </div>
     </div>
     <div class="hero-media">
@@ -106,8 +106,8 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
             {copy.reviews.map((review) => (
               <article class="review-card">
                 <span class="review-quote" aria-hidden="true">“</span>
-                <p>{review}</p>
-                <footer>{copy.reviewSource}</footer>
+                <p>{review.text}</p>
+                <footer><strong>{review.author}</strong><span>{copy.reviewSource}</span></footer>
               </article>
             ))}
           </div>
@@ -119,7 +119,7 @@ const [titleBefore, titleAfter = ''] = copy.title.split(copy.outlined);
             </div>
           </div>
         </div>
-        <ButtonLink href={contact.whatsappHref} label={common.contactCta} />
+        <ButtonLink href={contact.whatsappHref} label={common.contactCta} icon="whatsapp" />
       </div>
     </div>
   </section>
